@@ -1,0 +1,300 @@
+
+.nav 
+{
+    justify-content: flex-end;
+    padding-right: 20px;
+}
+
+.nav-item a 
+{
+    color: black;
+    padding: 6px 20px;
+    transition: .5s;
+}
+
+.nav-item a:hover 
+{
+    color: cyan;
+}
+
+.nav-item a span 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-bottom: 2px solid cyan;
+    border-radius: 15px;
+    transform: scale(0) translateY(50px);
+    opacity: 0;
+    transition: .5s;
+}
+
+.nav-item a:hover span 
+{
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+
+.head 
+{
+    padding-left: 20px;
+    font-size: 30px;
+    font-weight: bolder;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: underline;
+    cursor: default;
+    position: sticky;
+    top: 20px;
+}
+
+
+.container 
+{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+
+.grid-container 
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+    width: 100%;
+    padding: 60px;
+    box-sizing: border-box;
+}
+
+.grid-item 
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-item img 
+{
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.large-item 
+{
+    grid-row: span 2;
+}
+
+.overlay 
+{
+    position: absolute;
+    bottom: 0;
+    background: rgba(22, 21, 21, 0.034); 
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.text 
+{
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1.5;
+    cursor: default;
+}
+
+
+.container_body 
+{
+    grid-template-columns: repeat(2,400px);
+    grid-template-rows: repeat(1,200px);
+    padding: 40px 20px;
+}
+
+.image img {
+    padding-top: 20px;
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+}
+
+.text-content 
+{
+    font-family: Arial, Helvetica, sans-serif;
+    align-items: center;
+    text-align: justify;
+    font-size: 20px;
+    cursor: default;
+    padding-top: 40px;
+}
+
+.h3
+{
+    padding-left: 20px;
+    cursor: default;
+}
+
+#pic1
+{
+    width: 100%;
+    height: auto;
+    border-radius: 30px;
+    padding-bottom: 20px;
+}
+
+#para {
+    padding-top: 20px;
+    line-height: normal;
+    justify-content: flex-start;
+    text-align: justify;
+    padding-bottom: 30px;
+}
+
+
+.container-fluid {
+    padding: 50px 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.pagination
+{
+    gap: 10px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+
+
+.footer 
+{
+    background-color: #050505ce;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer h5 
+{
+    color: #fff;
+    margin-bottom: 20px;
+    cursor: default;
+}
+
+.footer p 
+{
+    color: #ccc;
+    font-size: 14px;
+    cursor: default;
+}
+
+.footer a 
+{
+    color: #ccc;
+    text-decoration: none;
+}
+
+.social-icons a 
+{
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.grid-container1 
+{
+    width: 100%;
+    background-color: rgba(127, 255, 212, 0.192);
+    padding: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 300px); 
+    grid-template-rows: repeat(2, 250px); 
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    justify-items: center; 
+    box-sizing: border-box;
+}
+
+.grid-item 
+{
+    width: 100%; 
+    height: 100%; 
+}
+
+.width
+{
+    grid-column: span 2;
+}
+
+.row
+{
+    grid-row: span 2;
+}
+
+
+img 
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    image-orientation: from-image;
+}
+
+.bg-primary
+{
+    justify-content: center;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.newsletter-container
+{
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    cursor: default;
+}
+
+.newsletter-container button
+{
+    cursor: pointer;
+    background-color: rgb(4, 36, 141);
+    color: #fff;
+    border-radius: 5px;
+}
+
+.newsletter-container button :hover
+{
+    font-weight: bold;
+}
+
+#email
+{
+    width: 350px;
+}
+
+.page-link
+{
+    justify-content: center;
+}
+
+#row1
+{
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    justify-self: center;
+    background-color: rgba(150, 127, 255, 0.164);
+    padding-bottom: 40px;
+}
