@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator</title>
+    <link rel="stylesheet" type="text/CSS" href="Style.css">
+</head>
+<body>
+    <form>
+        <div class="form">
+            <h1>GPA CALCULATOR</h1>
+            
+        </div>
+
+        <div class="text-container">
+            <table>
+                
+                <tr>
+                    <td>Introduction To Computer Science</td>
+                    <td><input type="text" class="input-field" name="txtintro" placeholder="marks" id="text1">
+                        <input type="text" class="input-field1" name="txtgrade1" id="grade1" placeholder="Grade" readonly></td>
+                </tr>
+                <tr>
+                    <td> Mathematics For Computing</td>
+                    <td><input type="text" class="input-field" name="txtmaths" placeholder="marks" id="text2">
+                        <input type="text" class="input-field1" name="txtgrade2" id="grade2" placeholder="Grade" readonly> </td>
+                </tr>
+                <tr>
+                    <td>Programming Fundamentals</td>
+                    <td><input type="text" class="input-field" name="txtpf" placeholder="marks" id="text3">
+                        <input type="text" class="input-field1" name="txtgrade3" id="grade3" placeholder="Grade" readonly></td>
+                </tr>
+                <tr>
+                    <td>Electronics and Computer Architecture</td>
+                    <td><input type="text" class="input-field" name="txteca" placeholder="marks" id="text4">
+                        <input type="text" class="input-field1" name="txtgrade4" id="grade4" placeholder="Grade" readonly></td>
+                </tr>
+                <tr>
+                    <td>Object Oriented Programming</td>
+                    <td><input type="text" class="input-field" name="txtoop" placeholder="marks" id="text5">
+                        <input type="text" class="input-field1" name="txtgrade5" id="grade5" placeholder="Grade" readonly></td>
+                </tr>
+                <tr>
+                    <td>Database Management System</td>
+                    <td><input type="text" class="input-field" name="txtdbms" placeholder="marks" id="text6" >
+                        <input type="text" class="input-field1" name="txtgrade6" id="grade6" placeholder="Grade" readonly></td>
+                </tr>
+                <tr>
+                    <td>Computer Networks</td>
+                    <td><input type="text" class="input-field" name="txtcn" placeholder="marks" id="text7">
+                        <input type="text" class="input-field1" name="txtgrade7" id="grade7" placeholder="Grade" readonly></td>
+                </tr>
+                <tr>
+                    <td>GUI Application Development</td>
+                    <td><input type="text" class="input-field" name="txtgui" placeholder="marks" id="text8">
+                        <input type="text" class="input-field1" name="txtgrade8" id="grade8" placeholder="Grade" readonly></td>
+                </tr>
+                <tr>
+                    <td>Software Engineering</td>
+                    <td><input type="text" class="input-field" name="txtse" placeholder="marks" id="text9">
+                        <input type="text" class="input-field1" name="txtgrade9" id="grade9" placeholder="Grade" readonly></td>
+                </tr>
+                <tr>
+                    <td>Enterprise Application Development</td>
+                    <td><input type="text" class="input-field" name="txtead" placeholder="marks" id="text10">
+                        <input type="text" class="input-field1" name="txtgrade10" id="grade10" placeholder="Grade" readonly></td>
+                </tr>
+                <tr>
+                    <td>Operating Systems</td>
+                    <td><input type="text" class="input-field" name="txtos" placeholder="marks" id="text11">
+                        <input type="text" class="input-field1" name="txtgrade11" id="grade11" placeholder="Grade" readonly></td>
+                </tr>
+                <tr>
+                    <td>Developing Modern Web </td>
+                    <td><input type="text" class="input-field" name="txtdmw" placeholder="marks" id="text12">
+                        <input type="text" class="input-field1" name="txtgrade12" id="grade12" placeholder="Grade" readonly></td>
+                </tr>
+                <tr>
+                    <td>Business Solution Development Project</td>
+                    <td><input type="text" class="input-field" name="txtbsdp" placeholder="marks" id="text13">
+                        <input type="text" class="input-field1" name="txtgrade13" id="grade13" placeholder="Grade" readonly></td>
+                </tr>
+                
+            </table>
+        </div>
+        <br>
+        <table class="gpabtn">
+            <tr>
+                <td colspan="2"><input type="text" name="txtgradepoint" id="textga" class="input-field1" placeholder="GPA"  readonly></td>
+            </tr>
+            <tr>
+                <td> <input type="button" class="btn" name="btncal" id="btncal" value="Calculate" onclick="calgpa()"></td>
+                <td><input type="reset" class="btn" name="btnreset" value="Reset"></td>
+            </tr>
+        </table>
+        
+       
+        
+            
+           
+    </form>
+
+    <script type="text/javascript">
+        function calgpa() {
+            const subjectMarks = [
+                document.getElementById('text1').value,
+                document.getElementById('text2').value,
+                document.getElementById('text3').value,
+                document.getElementById('text4').value,
+                document.getElementById('text5').value,
+                document.getElementById('text6').value,
+                document.getElementById('text7').value,
+                document.getElementById('text8').value,
+                document.getElementById('text9').value,
+                document.getElementById('text10').value,
+                document.getElementById('text11').value,
+                document.getElementById('text12').value,
+                document.getElementById('text13').value,
+            ];
+
+            const gradeElements = [
+                document.getElementById('grade1'),
+                document.getElementById('grade2'),
+                document.getElementById('grade3'),
+                document.getElementById('grade4'),
+                document.getElementById('grade5'),
+                document.getElementById('grade6'),
+                document.getElementById('grade7'),
+                document.getElementById('grade8'),
+                document.getElementById('grade9'),
+                document.getElementById('grade10'),
+                document.getElementById('grade11'),
+                document.getElementById('grade12'),
+                document.getElementById('grade13'),
+            ];
+
+            const creditValues = [3.0, 3.0, 3.0, 4.0, 2.0, 4.0, 3.0, 4.0, 4.0, 4.0, 4.0, 4.0, 3.0];
+
+            let totalgradepoint = 0;
+            let totalCredits = 0;
+
+            for (let i = 0; i < subjectMarks.length; i++) {
+                let marks = subjectMarks[i];
+                if (marks === "") {
+                    gradeElements[i].value = '-';
+                    continue;
+                }
+
+                marks = parseFloat(marks);
+                let gradepoint;
+                if (marks >= 85) {
+                    gradeElements[i].value = 'A+';
+                    gradepoint = 4.0;
+                } else if (marks >= 70) {
+                    gradeElements[i].value = 'A';
+                    gradepoint = 4.0;
+                } else if (marks >= 65) {
+                    gradeElements[i].value = 'A-';
+                    gradepoint = 3.7;
+                } else if (marks >= 60) {
+                    gradeElements[i].value = 'B+';
+                    gradepoint = 3.3;
+                } else if (marks >= 55) {
+                    gradeElements[i].value = 'B';
+                    gradepoint = 3.0;
+                } else if (marks >= 50) {
+                    gradeElements[i].value = 'B-';
+                    gradepoint = 2.7;
+                } else if (marks >= 45) {
+                    gradeElements[i].value = 'C+';
+                    gradepoint = 2.3;
+                } else if (marks >= 40) {
+                    gradeElements[i].value = 'C';
+                    gradepoint = 2.0;
+                } else if (marks >= 35) {
+                    gradeElements[i].value = 'C-';
+                    gradepoint = 1.7;
+                } else if (marks >= 30) {
+                    gradeElements[i].value = 'D+';
+                    gradepoint = 1.3;
+                } else if (marks >= 25) {
+                    gradeElements[i].value = 'D';
+                    gradepoint = 1.0;
+                } else {
+                    gradeElements[i].value = 'E';
+                    gradepoint = 0.0;
+                }
+
+                totalgradepoint += gradepoint * creditValues[i];
+                totalCredits += creditValues[i];
+            }
+
+            if (totalCredits > 0) {
+                document.getElementById('textga').value = (totalgradepoint / totalCredits).toFixed(2);
+            } else {
+                document.getElementById('textga').value = "0.00";
+            }
+        }
+    </script>
+</body>
+</html>
