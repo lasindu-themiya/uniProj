@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Calculator</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Loan Calculator</h1>
+    <br>
+    <form>
+        <table id="tabletext">
+            <tr>
+                <td>Enter Your Name</td>
+                <td><input type="text" name="txtname" class="text" id="textname" placeholder="Name" required></td>
+            </tr>
+            <tr>
+                <td>Enter Your Amount</td>
+                <td><input type="number" name="txtamount" class="text" id="textamount" placeholder="Amount" required></td>
+            </tr>
+            <tr>
+                <td>Enter Number Of Months</td>
+                <td><input type="number" name="txtmonths" class="text" id="textmonths" placeholder="Months" required></td>
+            </tr>
+            <tr>
+                <td>Enter Your Interest Rate Per Year</td>
+                <td><input type="number" name="txtinterest" class="text" id="textinterest" placeholder="Rate%" required></td>
+            </tr>
+        </table>
+        <table id="buttons">
+            <tr>
+                <td><input type="button" name="btncalculate" class="btn" id="btncalculate" value="Calculate" onclick="calloan()"></td>
+                <td><input type="reset" name="btnclear" class="btn" id="btnclear" value="Clear"></td>
+            </tr>
+        </table>
+    </form>
+
+    <div class="result-container" id="resultContainer"></div>
+    <div class="result-container" id="resultContainer1"></div>
+
+    <script type="text/javascript">
+        function calloan() {
+            var name = document.getElementById("textname").value;
+            var amount = parseFloat(document.getElementById("textamount").value);
+            var months = parseInt(document.getElementById("textmonths").value);
+            var annualinterest = parseFloat(document.getElementById("textinterest").value);
+
+            if (isNaN(amount) || isNaN(months) || isNaN(annualinterest) || months <= 0 || annualinterest <= 0) {
+                alert('Please enter valid numbers for amount, months, and interest rate.');
+                return;
+            }
+
+            var monthlyinterestrate = annualinterest / 100 / 12;
+            var monthlypayment = amount * monthlyinterestrate / (1 - Math.pow(1 + monthlyinterestrate, -months));
+            var totalInterest = 0;
+            var totalpayment = 0;
+
+            let resultContainer = document.getElementById('resultContainer');
+            resultContainer.innerHTML = '<h2>Monthly Payment Breakdown for ' + name + '</h2>';
+
+            for (let i = 1; i <= months; i++) {
+                let monthlyinterest = (amount - (monthlypayment * (i - 1))) * monthlyinterestrate;
+                let amountformonth = monthlypayment - monthlyinterest;
+                totalInterest += monthlyinterest;
+                totalpayment += monthlypayment;
+
+                resultContainer.innerHTML += `<p>Total Payment for Month ${i} :  ${monthlypayment.toFixed(2)} <br> Amount: ${amountformonth.toFixed(2)}, Interest: ${monthlyinterest.toFixed(2)}</p>`; 
+            }
+            resultContainer1.innerHTML += `<h3>Total Interest is ${totalInterest.toFixed(2)}</h3>`;
+            resultContainer1.innerHTML += `<h3>Total Payment is ${totalpayment.toFixed(2)}</h3>`;
+        }
+
+        document.getElementById('btnclear').addEventListener('click', function() {
+            document.getElementById('resultContainer').innerHTML = '';
+            document.getElementById('resultContainer1').innerHTML = '';
+        });
+    </script>
+</body>
+</html>
